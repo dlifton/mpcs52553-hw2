@@ -1,0 +1,24 @@
+<!Doctype html>
+<html>
+<head>
+    <title> HW2 </title>
+</head>
+<!-- get the address and geocode information-->
+<% address = params['address']%>
+<% geocode = DivvyStation.find_nearest_station(address)%>
+<% name = geocode['name']%>
+<% lat = geocode['lat']%>
+<% lng = geocode['lng']%>
+<body>
+    <div class = 'container'>
+        <div class = 'page-header'>
+            <h1>
+                <a href='/'>Divvy Stations</a>
+                <small> <%=name%></small>
+            </h1>
+        </div>
+<!-- show map-->
+    <%= show_map(lat, lng) %>
+    </div>
+</body>
+</html>
